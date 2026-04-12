@@ -1,0 +1,26 @@
+Natural Language Processing (NLP) combines computational linguistics, machine learning, and deep learning to process human language.
+
+Advanced concepts:
+- Named Entity Recognition (NER)
+- Dependency Parsing
+- Word Embeddings (Word2Vec, GloVe)
+
+Modern architectures:
+- Recurrent Neural Networks (RNN)
+- Long Short-Term Memory (LSTM)
+- Transformers (e.g., BERT, GPT)
+
+Key techniques:
+- Attention Mechanism
+- Contextual embeddings
+- Sequence-to-sequence models
+
+Challenges:
+- Ambiguity in language
+- Sarcasm detection
+- Multilingual processing
+
+Applications:
+- Machine translation
+- Question answering systems
+- Text summarization

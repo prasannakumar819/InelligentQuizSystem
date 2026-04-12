@@ -1,0 +1,16 @@
+Natural Language Processing (NLP) is a field of Artificial Intelligence that helps computers understand and process human language.
+
+It allows machines to read, understand, and respond to text or speech.
+
+Common applications:
+- Chatbots
+- Voice assistants (like Alexa, Siri)
+- Language translation (Google Translate)
+
+Basic tasks:
+- Text classification
+- Sentiment analysis (positive or negative opinion)
+- Tokenization (splitting text into words)
+
+Example:
+If a user types "I love this product", NLP helps identify it as a positive sentiment.

@@ -1,0 +1,32 @@
+{
+  "Rajesh": {
+    "password": "1234567890",
+    "history": [],
+    "roadmap_progress": {
+      "Introduction": {
+        "easy": "completed",
+        "medium": "completed",
+        "hard": "completed",
+        "status": "completed"
+      },
+      "Machine Learning": {
+        "easy": "unlocked",
+        "medium": "locked",
+        "hard": "locked",
+        "status": "in_progress"
+      },
+      "Deep Learning": {
+        "easy": "locked",
+        "medium": "locked",
+        "hard": "locked",
+        "status": "locked"
+      },
+      "Natural Language Processing": {
+        "easy": "locked",
+        "medium": "locked",
+        "hard": "locked",
+        "status": "locked"
+      }
+    }
+  }
+}

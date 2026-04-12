@@ -1,0 +1,15 @@
+Artificial Intelligence (AI) refers to systems that can perform tasks such as learning, reasoning, and problem-solving.
+
+AI can be divided into:
+- Narrow AI: Designed for specific tasks (e.g., chatbots)
+- General AI: Hypothetical systems with human-like intelligence
+
+Important concepts:
+- Machine Learning: Subset of AI that learns from data
+- Neural Networks: Inspired by the human brain
+- Algorithms: Step-by-step procedures for solving problems
+
+Applications:
+- Healthcare (disease prediction)
+- Finance (fraud detection)
+- E-commerce (recommendation systems)

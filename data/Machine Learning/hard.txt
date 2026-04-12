@@ -1,0 +1,22 @@
+Machine Learning involves designing algorithms that improve performance with experience.
+
+Types:
+- Supervised Learning (classification, regression)
+- Unsupervised Learning (clustering, dimensionality reduction)
+- Reinforcement Learning (reward-based learning)
+
+Advanced algorithms:
+- Support Vector Machines (SVM)
+- Random Forest
+- Gradient Boosting
+
+Concepts:
+- Overfitting and Underfitting
+- Bias-Variance Tradeoff
+- Feature Engineering
+
+Evaluation metrics:
+- Accuracy
+- Precision
+- Recall
+- F1 Score

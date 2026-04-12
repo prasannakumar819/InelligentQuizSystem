@@ -1,0 +1,21 @@
+Deep Learning involves complex neural network architectures trained on large datasets.
+
+Key architectures:
+- Convolutional Neural Networks (CNN)
+- Recurrent Neural Networks (RNN)
+- Transformers
+
+Concepts:
+- Gradient Descent optimization
+- Backpropagation algorithm
+- Vanishing/Exploding gradients
+
+Advanced topics:
+- Transfer Learning
+- Attention Mechanism
+- Generative Models (GANs)
+
+Challenges:
+- High computational cost
+- Large data requirements
+- Model interpretability

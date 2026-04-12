@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fad0c4);
+    background-size: 300% 300%;
+    animation: gradientMove 8s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    width: 500px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.topic {
+    margin: 12px 0;
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+.completed {
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
+    color: white;
+}
+
+.unlocked {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.locked {
+    background: #dfe6e9;
+    color: #636e72;
+}
+
+.topic a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    color: white;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.score-box {
+    background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.empty {
+    background: #ffeaa7;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.analytics-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    margin-bottom: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Welcome {{ username }} ✨</h2>
+
+<h3>📚 Learning Roadmap</h3>
+
+{% for topic in topics %}
+    {% set topic_data = roadmap.get(topic) %}
+    {% set topic_status = topic_data["status"] if topic_data and "status" in topic_data else None %}
+
+    {% if topic_status == "completed" %}
+        <div class="topic completed">
+            ✔ {{ topic }} (Completed)
+        </div>
+
+    {% elif topic_status == "in_progress" %}
+        <div class="topic unlocked">
+            🔓 {{ topic }}
+
+            <br><br>
+
+            {% if topic_data.easy == "unlocked" %}
+                <a href="/quiz/{{ topic }}/easy">Easy</a><br>
+            {% endif %}
+
+            {% if topic_data.medium == "unlocked" %}
+                <a href="/quiz/{{ topic }}/medium">Medium</a><br>
+            {% endif %}
+
+            {% if topic_data.hard == "unlocked" %}
+                <a href="/quiz/{{ topic }}/hard">Hard</a>
+            {% endif %}
+        </div>
+
+    {% else %}
+        <div class="topic locked">
+            🔒 {{ topic }} (Locked)
+        </div>
+    {% endif %}
+{% endfor %}
+
+<h3>📊 Quiz History</h3>
+
+{% if history %}
+    {% for h in history %}
+        <div class="score-box">
+            🌟 Score: {{ h.score }} / {{ h.total_questions }}
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="empty">
+        No quiz attempts yet 📄
+    </div>
+{% endif %}
+
+<a href="/analytics" class="btn analytics-btn">📊 View Analytics</a>
+<br>
+<a href="/logout" class="btn">🔒 Logout</a>
+
+</div>
+
+</body>
+</html>

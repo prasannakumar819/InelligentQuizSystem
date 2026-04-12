@@ -1,0 +1,20 @@
+Natural Language Processing (NLP) is a subfield of AI that focuses on interaction between computers and human language.
+
+Key components:
+- Syntax: Structure of sentences
+- Semantics: Meaning of words and sentences
+- Pragmatics: Context and intent
+
+Important techniques:
+- Tokenization: Breaking text into words or sentences
+- Stemming & Lemmatization: Reducing words to root form
+- Part-of-Speech Tagging: Identifying nouns, verbs, etc.
+
+Models used:
+- Bag of Words (BoW)
+- TF-IDF (Term Frequency-Inverse Document Frequency)
+
+Applications:
+- Spam detection
+- Chatbots
+- Search engines

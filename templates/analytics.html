@@ -1,0 +1,67 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="performanceChart"></canvas>
+<canvas id="difficultyChart"></canvas>
+<canvas id="weakTopicChart"></canvas>
+
+<script>
+const history = {{ history | tojson }};
+
+// 1️⃣ Performance Trend
+const percentages = history.map(h => h.percentage);
+const attempts = history.map((_, i) => i + 1);
+
+new Chart(document.getElementById('performanceChart'), {
+    type: 'line',
+    data: {
+        labels: attempts,
+        datasets: [{
+            label: 'Performance %',
+            data: percentages
+        }]
+    }
+});
+
+// 2️⃣ Difficulty Analysis
+const difficultyMap = {};
+history.forEach(h => {
+    difficultyMap[h.difficulty] = (difficultyMap[h.difficulty] || []);
+    difficultyMap[h.difficulty].push(h.percentage);
+});
+
+const difficultyAvg = {};
+for (let key in difficultyMap) {
+    const arr = difficultyMap[key];
+    difficultyAvg[key] = arr.reduce((a,b)=>a+b)/arr.length;
+}
+
+new Chart(document.getElementById('difficultyChart'), {
+    type: 'bar',
+    data: {
+        labels: Object.keys(difficultyAvg),
+        datasets: [{
+            label: 'Avg Score %',
+            data: Object.values(difficultyAvg)
+        }]
+    }
+});
+
+// 3️⃣ Weak Topic Analysis
+const weakMap = {};
+history.forEach(h => {
+    for (let topic in h.weak_topics) {
+        weakMap[topic] = (weakMap[topic] || 0) + h.weak_topics[topic];
+    }
+});
+
+new Chart(document.getElementById('weakTopicChart'), {
+    type: 'bar',
+    data: {
+        labels: Object.keys(weakMap),
+        datasets: [{
+            label: 'Mistakes',
+            data: Object.values(weakMap)
+        }]
+    }
+});
+</script>

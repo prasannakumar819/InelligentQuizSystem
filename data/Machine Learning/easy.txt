@@ -1,0 +1,18 @@
+Machine Learning (ML) is a subset of AI that allows systems to learn from data without being explicitly programmed.
+
+Basic idea:
+- Input data → Learn patterns → Make predictions
+
+Types:
+- Supervised Learning (with labels)
+- Unsupervised Learning (without labels)
+
+Examples:
+- Spam email detection
+- Movie recommendations
+- Predicting house prices
+
+Common algorithms:
+- Linear Regression
+- Decision Trees
+

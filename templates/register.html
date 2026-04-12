@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+    }
+
+    .register-container {
+      background: white;
+      padding: 40px;
+      width: 380px;
+      border-radius: 18px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .register-container h2 {
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #43cea2;
+      box-shadow: 0 0 8px rgba(67, 206, 162, 0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      opacity: 0.95;
+    }
+
+    .login-link {
+      margin-top: 15px;
+      display: block;
+      font-size: 14px;
+      color: #185a9d;
+      text-decoration: none;
+    }
+
+    .login-link:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <h2>✨ Create Account</h2>
+
+    <form method="POST">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" required>
+      </div>
+
+      <button type="submit">Register 🚀</button>
+    </form>
+
+    <a href="/login" class="login-link">Already have an account? Login</a>
+  </div>
+
+</body>
+</html>

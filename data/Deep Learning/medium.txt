@@ -1,0 +1,19 @@
+Deep Learning uses Artificial Neural Networks (ANNs) with multiple hidden layers.
+
+Key components:
+- Input layer
+- Hidden layers
+- Output layer
+
+Concepts:
+- Activation functions (ReLU, Sigmoid)
+- Loss function
+- Backpropagation
+
+Types of networks:
+- CNN (for images)
+- RNN (for sequential data)
+
+Applications:
+- Face recognition
+- Language translation

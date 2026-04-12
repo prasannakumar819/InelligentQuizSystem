@@ -1,0 +1,21 @@
+Artificial Intelligence (AI) is a broad field focused on creating intelligent agents capable of perceiving, reasoning, and acting.
+
+Key domains:
+- Machine Learning (ML)
+- Natural Language Processing (NLP)
+- Computer Vision
+
+Types of learning:
+- Supervised Learning
+- Unsupervised Learning
+- Reinforcement Learning
+
+Challenges:
+- Data quality and bias
+- Explainability
+- Ethical concerns
+
+Advanced topics:
+- Knowledge representation
+- Search algorithms (A*, BFS, DFS)
+- Optimization techniques

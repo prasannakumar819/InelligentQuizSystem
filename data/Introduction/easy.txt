@@ -1,0 +1,14 @@
+Artificial Intelligence (AI) is the simulation of human intelligence in machines. 
+These machines are programmed to think, learn, and make decisions.
+
+AI is used in many applications like voice assistants, recommendation systems, and chatbots.
+
+Key concepts:
+- AI: Machines performing tasks that require human intelligence
+- Automation: Performing tasks automatically
+- Data: Information used to train AI systems
+
+Examples:
+- Siri and Alexa
+- Google Search recommendations
+- Self-driving cars (basic level understanding)

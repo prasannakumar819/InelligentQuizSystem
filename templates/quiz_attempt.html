@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 0;
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      display: flex;
+      justify-content: center;
+    }
+
+    .quiz-container {
+      width: 800px;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .question-card {
+      background: #f8f9fc;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      transition: 0.3s;
+    }
+
+    .question-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .question-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .option {
+      display: block;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .option:hover {
+      background: #e2e6f5;
+      border-color: #4e73df;
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+      accent-color: #4e73df;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4e73df, #224abe);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: #ddd;
+      margin: 20px 0;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h2>🧠 Take Your Quiz</h2>
+
+  <form method="POST" action="/submit_quiz">
+
+    {% for q in quiz %}
+      {% set question_index = loop.index0 %}
+
+      <div class="question-card">
+        <div class="question-title">
+          Q{{ loop.index }}: {{ q.question }}
+        </div>
+
+        {% for key, value in q.options.items() %}
+          <label class="option">
+            <input type="radio"
+                   name="q{{ question_index }}"
+                   value="{{ key }}"
+                   required>
+            {{ key }}) {{ value }}
+          </label>
+        {% endfor %}
+      </div>
+
+    {% endfor %}
+
+    <button type="submit" class="submit-btn">Submit Quiz 🚀</button>
+
+  </form>
+</div>
+
+</body>
+</html>

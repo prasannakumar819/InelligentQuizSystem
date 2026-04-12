@@ -1,0 +1,14 @@
+Deep Learning is a subset of Machine Learning that uses neural networks with multiple layers.
+
+It is inspired by the human brain.
+
+Applications:
+- Image recognition
+- Speech recognition
+- Chatbots
+
+Basic component:
+- Neuron (processes input and produces output)
+
+Example:
+- Recognizing cats and dogs in images

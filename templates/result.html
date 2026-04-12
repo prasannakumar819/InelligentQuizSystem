@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Result</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      padding: 20px;
+    }
+
+    .result-container {
+      background: white;
+      padding: 40px;
+      width: 750px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .score-box {
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .weak-title {
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    .weak-topic {
+      background: #f8f9fc;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .no-weak {
+      color: #28a745;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .explanation-section {
+      margin-top: 30px;
+    }
+
+    .question-card {
+      background: #f4f6ff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border-left: 6px solid #ff4d4d;
+    }
+
+    .question-card h4 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .answer-row {
+      margin: 6px 0;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      font-weight: bold;
+    }
+
+    .wrong {
+      background-color: #f8d7da;
+      color: #721c24;
+      font-weight: bold;
+    }
+
+    .explanation-box {
+      margin-top: 10px;
+      background: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      border-left: 4px solid #667eea;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      width: 200px;
+    }
+
+    .back-btn:hover {
+      opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="result-container">
+
+    <h2>🎉 Quiz Result</h2>
+
+    <div class="score-box">
+      Score: {{ score }} / {{ total }} <br>
+      Percentage: {{ percentage|round(2) }}%
+    </div>
+
+    <div class="weak-title">📉 Weak Topics</div>
+
+    {% if weak_topics %}
+      {% for topic, count in weak_topics.items() %}
+        <div class="weak-topic">
+          {{ topic }} → {{ count }} mistake(s)
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="no-weak">🔥 No weak topics — Great Job!</div>
+    {% endif %}
+
+    {% if explanations %}
+    <div class="explanation-section">
+      <h3>🧠 Detailed Explanations</h3>
+
+      {% for exp in explanations %}
+        <div class="question-card">
+
+          <h4>{{ exp.question }}</h4>
+
+          <div class="answer-row wrong">
+            ❌ Your Answer: {{ exp.user_answer }}
+          </div>
+
+          <div class="answer-row correct">
+            ✅ Correct Answer: {{ exp.correct_answer }}
+          </div>
+
+          <div class="explanation-box">
+            {{ exp.explanation }}
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+    {% endif %}
+
+    <a href="/dashboard" class="back-btn">⬅ Back to Dashboard</a>
+
+  </div>
+
+</body>
+</html>
